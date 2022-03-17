@@ -87,7 +87,7 @@
         </table>
         <br>
         <div class="flex justify-center">
-        <button wire:click="more({{ $limit + 3 }})" class="bg-pink-500 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">Fetch More</button>
+        <button wire:click="more({{ $limit + 2 }})" class="bg-pink-500 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">Fetch More</button>
         </div>
         <br>
 {{--  {{ $fetchlimit }}  --}}

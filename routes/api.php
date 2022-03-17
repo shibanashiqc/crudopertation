@@ -20,5 +20,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-// Route::post('insta-login', [instagramController::class,'instagram_login2']);

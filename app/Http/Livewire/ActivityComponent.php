@@ -56,7 +56,7 @@ class ActivityComponent extends Component
     public function more($id){
 
         $this->fetchlimit++;
-        if($this->fetchlimit > 1){
+        if($this->fetchlimit > 2){
            return $this->alert(
                 'error',
                 'Sorry..! You can only fetch 2 activities perday',
@@ -79,9 +79,14 @@ class ActivityComponent extends Component
     public function render()
     {
         //$acticity = Activity::with('user')->latest()->take($this->limit ? $this->limit : 3)->get();
-        $acticity = Activity::where('user_id', auth()->user()->id)
-        ->orderBy('id', 'desc')
-        ->limit($this->total ? $this->total : 3)->offset($this->limit)->get();
+        // $acticity = Activity::where('user_id', auth()->user()->id)
+        // ->orderBy('id', 'desc')
+        // ->limit($this->total ? $this->total : 3)->offset($this->limit)->get();
+
+        $acticity = Activity::where('user_id', auth()->user()->id)->orderBy('id', 'desc')
+        ->take($this->limit ? 3 + $this->limit : 3)
+        ->get();
+
         //dd($acticity);
         return view('livewire.activity-component', ['activity' => $acticity]);
     }

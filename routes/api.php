@@ -20,14 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::fallback(function(){
-    return response()->json([
-        'success' => false,
-        'msg' => 'Invalid Route',
-        'code' => 404,
-    ], 404);
-});
-
-Route::get('/cron/run', [MasslookerController::class,'run']);
 
 // Route::post('insta-login', [instagramController::class,'instagram_login2']);
